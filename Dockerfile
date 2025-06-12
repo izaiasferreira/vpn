@@ -1,15 +1,20 @@
 FROM ubuntu:22.04
 
+# Aceita variáveis em tempo de build (via --build-arg)
 ARG SSH_USER=tunnel
 ARG SSH_PASSWORD=t#nn3l
+
+# Usa ARGs para definir variáveis de ambiente persistentes
+ENV SSH_USER=${SSH_USER}
+ENV SSH_PASSWORD=${SSH_PASSWORD}
 
 RUN apt-get update && \
     apt-get install -y openssh-server sudo && \
     mkdir /var/run/sshd
 
-# Cria usuário e senha corretamente
+# Cria usuário e define senha usando variáveis de ambiente
 RUN useradd -m -s /bin/bash "$SSH_USER" && \
-    echo "$SSH_USER:$SSH_PASSWORD" | chpasswd --crypt-method=SHA512 && \
+    echo "${SSH_USER}:${SSH_PASSWORD}" | chpasswd --crypt-method=SHA512 && \
     usermod -aG sudo "$SSH_USER"
 
 # Configurações do SSH

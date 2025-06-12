@@ -1,7 +1,9 @@
-version: "3"
 services:
   ssh-tunnel:
-    build: .
+    build:
+      context: .
+      args:
+        SSH_USER: mainframe
+        SSH_PASSWORD: m@inFr4m3
     ports:
       - "1050:22"
-    restart: unless-stopped
