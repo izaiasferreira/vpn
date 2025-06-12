@@ -1,10 +1,7 @@
+version: "3"
 services:
   ssh-tunnel:
-    build:
-      context: .
-      args:
-        SSH_USER: tunnel
-        SSH_PASSWORD: supersecreta123
+    build: .
     ports:
-      - "${SSH_PORT}:22"
+      - "1050:22"
     restart: unless-stopped
