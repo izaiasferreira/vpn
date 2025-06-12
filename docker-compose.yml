@@ -3,7 +3,7 @@ services:
     build:
       context: .
       args:
-        SSH_USER: mainframe
-        SSH_PASSWORD: m@inFr4m3
+        SSH_USER: tunnel
+        SSH_PASSWORD: t#unn3l
     ports:
       - "1050:22"
