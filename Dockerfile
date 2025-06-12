@@ -6,7 +6,7 @@ RUN apt-get update && \
 
 # Criar usuário e senha para SSH
 RUN useradd -m tunnel && \
-    echo "tunnel:tunnel123" | chpasswd && \
+    echo "$SSH_USER:$SSH_PASSWORD" | chpasswd && \
     echo "PermitTunnel yes" >> /etc/ssh/sshd_config && \
     echo "AllowTcpForwarding yes" >> /etc/ssh/sshd_config && \
     echo "GatewayPorts yes" >> /etc/ssh/sshd_config && \
