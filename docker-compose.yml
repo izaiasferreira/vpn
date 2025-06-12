@@ -3,5 +3,5 @@ services:
   ssh-tunnel:
     build: .
     ports:
-      - "1050:22"
+      - "${SSH_PORT}:22"
     restart: unless-stopped
