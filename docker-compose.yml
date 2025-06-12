@@ -4,6 +4,6 @@ services:
       context: .
       args:
         SSH_USER: tunnel
-        SSH_PASSWORD: t#unn3l
+        SSH_PASSWORD: tunnel
     ports:
       - "1050:22"

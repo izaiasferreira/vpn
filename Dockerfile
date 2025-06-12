@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 # Aceita variáveis em tempo de build (via --build-arg)
 ARG SSH_USER=tunnel
-ARG SSH_PASSWORD=t#nn3l
+ARG SSH_PASSWORD=tunnel
 
 # Usa ARGs para definir variáveis de ambiente persistentes
 ENV SSH_USER=${SSH_USER}
